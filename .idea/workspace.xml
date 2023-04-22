@@ -5,28 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6b7ab0a-9fd1-4d4a-bf59-753366b1fb7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/application/ChatBlockHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/application/ChatHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/application/ChatServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/application/ChatUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/application/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/exceptions/MessageHistoryNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/ChatBlockCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/ChatMediator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/ChatParticipant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageReceiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/records/MessageAddressing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/driver/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/IterableByUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageArchive.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/chat/messages/MessageMemento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/chat/user/ChatHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/application/ChatBlockHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/server/ChatBlockHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/application/ChatHistory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/application/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/server/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/application/ChatUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/application/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/ChatMediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/ChatMediator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/ChatParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/ChatParticipant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/MessageReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/records/MessageAddressing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/messages/MessageAddressing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/driver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

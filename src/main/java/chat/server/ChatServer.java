@@ -1,10 +1,10 @@
-package chat.application;
+package chat.server;
 
 import chat.interfaces.ChatBlockCollection;
 import chat.interfaces.ChatMediator;
 import chat.interfaces.ChatParticipant;
-import chat.interfaces.MessageInformation;
-import chat.records.MessageAddressing;
+import chat.interfaces.MessageData;
+import chat.messages.MessageAddressing;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -40,7 +40,7 @@ public class ChatServer implements ChatMediator {
     }
 
     @Override
-    public void distributeMessage(MessageInformation message) {
+    public void distributeMessage(MessageData message) {
         for (ChatParticipant user : users) {
             if (checkShouldReceiveMessage(user, message)) {
                 user.receiveMessage(message);
@@ -48,7 +48,7 @@ public class ChatServer implements ChatMediator {
         }
     }
 
-    private boolean checkShouldReceiveMessage(ChatParticipant receiver, MessageInformation message) {
+    private boolean checkShouldReceiveMessage(ChatParticipant receiver, MessageData message) {
         MessageAddressing messageAddressing = message.getAddressing();
         ChatParticipant sender = messageAddressing.sender();
         Set<ChatParticipant> recipients = messageAddressing.recipients();

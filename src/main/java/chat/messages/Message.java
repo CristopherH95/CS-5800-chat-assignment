@@ -1,11 +1,10 @@
-package chat.application;
+package chat.messages;
 
-import chat.interfaces.MessageInformation;
-import chat.records.MessageAddressing;
+import chat.interfaces.MessageData;
 
 import java.util.Date;
 
-public class Message implements MessageInformation {
+public class Message implements MessageData {
     private final MessageAddressing addressing;
     private final String content;
     private final Date timestamp;
@@ -14,10 +13,6 @@ public class Message implements MessageInformation {
         this.addressing = addressing;
         this.content = content;
         this.timestamp = new Date();
-    }
-
-    public long getSenderID() {
-        return addressing.sender().getID();
     }
 
     public MessageAddressing getAddressing() {
@@ -33,7 +28,7 @@ public class Message implements MessageInformation {
     }
 
     @Override
-    public int compareTo(MessageInformation otherMessage) {
+    public int compareTo(MessageData otherMessage) {
         return timestamp.compareTo(otherMessage.getTimestamp());
     }
 }

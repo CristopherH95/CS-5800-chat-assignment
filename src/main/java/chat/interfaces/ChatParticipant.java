@@ -1,8 +1,6 @@
 package chat.interfaces;
 
-public interface ChatParticipant extends MessageSender, MessageReceiver {
-    long getID();
+public interface ChatParticipant extends MessageSender, MessageReceiver, IterableByUser {
     String getName();
-    void setName(String name);
     void setChatMediator(ChatMediator chatMediator);
 }

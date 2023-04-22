@@ -1,4 +1,4 @@
-package chat.application;
+package chat.server;
 
 import chat.interfaces.ChatBlockCollection;
 import chat.interfaces.ChatParticipant;

@@ -1,11 +1,10 @@
 package chat.interfaces;
 
-import chat.records.MessageAddressing;
+import chat.messages.MessageAddressing;
 
 import java.util.Date;
 
-public interface MessageInformation extends Comparable<MessageInformation> {
-    long getSenderID();
+public interface MessageData extends Comparable<MessageData> {
     MessageAddressing getAddressing();
     String getContent();
     Date getTimestamp();

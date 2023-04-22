@@ -1,6 +1,6 @@
 package chat.interfaces;
 
-public interface MessageCollection {
-    void addMessage(MessageInformation message);
-    MessageInformation getLastSent(ChatParticipant sender);
+public interface MessageCollection extends IterableByUser {
+    void addMessage(MessageData message);
+    MessageData getLastSent(ChatParticipant sender);
 }

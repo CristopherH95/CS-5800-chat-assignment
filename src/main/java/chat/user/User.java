@@ -1,23 +1,22 @@
-package chat.application;
+package chat.user;
 
 import chat.interfaces.ChatMediator;
 import chat.interfaces.ChatParticipant;
 import chat.interfaces.MessageCollection;
-import chat.interfaces.MessageInformation;
-import chat.records.MessageAddressing;
+import chat.interfaces.MessageData;
+import chat.messages.Message;
+import chat.messages.MessageAddressing;
 
+import java.util.Iterator;
+import java.util.Objects;
 import java.util.Set;
 
-public class ChatUser implements ChatParticipant {
-    private static long userCounter = 0;
-    private final long ID;
-    private String name;
+public class User implements ChatParticipant {
+    private final String name;
     private ChatMediator chatMediator;
     private final MessageCollection messageHistory;
 
-    public ChatUser(String name, ChatMediator chatMediator) {
-        userCounter++;
-        this.ID = userCounter;
+    public User(String name, ChatMediator chatMediator) {
         this.name = name;
         this.messageHistory = new ChatHistory();
         this.chatMediator = chatMediator;
@@ -25,17 +24,8 @@ public class ChatUser implements ChatParticipant {
     }
 
     @Override
-    public long getID() {
-        return ID;
-    }
-
-    @Override
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setChatMediator(ChatMediator chatMediator) {
@@ -52,12 +42,30 @@ public class ChatUser implements ChatParticipant {
     }
 
     @Override
-    public void receiveMessage(MessageInformation message) {
+    public void receiveMessage(MessageData message) {
         messageHistory.addMessage(message);
     }
 
     @Override
     public String toString() {
         return String.format("[User: '%s']", name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(name, user.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public Iterator<MessageData> userMessagesIterator(ChatParticipant user) {
+        return messageHistory.userMessagesIterator(user);
     }
 }
