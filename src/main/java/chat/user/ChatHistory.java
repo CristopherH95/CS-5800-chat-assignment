@@ -37,10 +37,12 @@ public class ChatHistory implements MessageHistory {
     }
 
     public void removeMessage(MessageData message) {
-        UUID messageID = message.getMessageID();
+        UUID toDeleteID = message.getMessageID();
 
         for (MessageData messageData : messages) {
-            if (messageData.getMessageID() == messageID) {
+            UUID messageID = messageData.getMessageID();
+
+            if (messageID.equals(toDeleteID)) {
                 messages.remove(messageData);
                 break;
             }
