@@ -8,4 +8,5 @@ public interface ChatParticipant extends MessageSender, MessageReceiver, Iterabl
     void setChatMediator(ChatMediator chatMediator);
     void undo();
     void receiveUndo(MessageData messageData);
+    void block(String name);
 }

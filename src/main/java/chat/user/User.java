@@ -91,4 +91,9 @@ public class User implements ChatParticipant {
     public void receiveUndo(MessageData messageData) {
         messageHistory.removeMessage(messageData);
     }
+
+    @Override
+    public void block(String name) {
+        chatMediator.block(this, name);
+    }
 }
