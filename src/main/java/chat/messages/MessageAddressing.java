@@ -1,6 +1,6 @@
 package chat.messages;
 
-import chat.interfaces.ChatParticipant;
+import chat.interfaces.server.ChatParticipant;
 
 import java.util.Set;
 

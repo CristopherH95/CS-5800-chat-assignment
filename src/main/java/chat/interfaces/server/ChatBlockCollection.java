@@ -1,4 +1,4 @@
-package chat.interfaces;
+package chat.interfaces.server;
 
 public interface ChatBlockCollection {
     void addBlock(ChatParticipant blockFrom, ChatParticipant blockTo);

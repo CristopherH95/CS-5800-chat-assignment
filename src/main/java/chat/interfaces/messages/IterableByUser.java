@@ -1,4 +1,6 @@
-package chat.interfaces;
+package chat.interfaces.messages;
+
+import chat.interfaces.server.ChatParticipant;
 
 import java.util.Iterator;
 

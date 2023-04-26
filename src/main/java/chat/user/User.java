@@ -1,9 +1,11 @@
 package chat.user;
 
-import chat.interfaces.ChatMediator;
-import chat.interfaces.ChatParticipant;
-import chat.interfaces.MessageCollection;
-import chat.interfaces.MessageData;
+import chat.exceptions.MissingHistoryStateException;
+import chat.interfaces.messages.MessageHistory;
+import chat.interfaces.messages.MessageHistorySnapshot;
+import chat.interfaces.server.ChatMediator;
+import chat.interfaces.server.ChatParticipant;
+import chat.interfaces.messages.MessageData;
 import chat.messages.Message;
 import chat.messages.MessageAddressing;
 
@@ -13,14 +15,17 @@ import java.util.Set;
 
 public class User implements ChatParticipant {
     private final String name;
+    private final MessageHistory messageHistory;
     private ChatMediator chatMediator;
-    private final MessageCollection messageHistory;
+    private MessageHistorySnapshot messageHistorySnapshot;
 
     public User(String name, ChatMediator chatMediator) {
         this.name = name;
         this.messageHistory = new ChatHistory();
         this.chatMediator = chatMediator;
         this.chatMediator.registerUser(this);
+        this.messageHistorySnapshot = null;
+
     }
 
     @Override
@@ -38,6 +43,8 @@ public class User implements ChatParticipant {
     public void sendMessage(String content, Set<ChatParticipant> recipients) {
         MessageAddressing addressing = new MessageAddressing(this, recipients);
         Message message = new Message(addressing, content);
+        messageHistorySnapshot = messageHistory.save();
+        messageHistory.addMessage(message);
         chatMediator.distributeMessage(message);
     }
 
@@ -67,5 +74,21 @@ public class User implements ChatParticipant {
     @Override
     public Iterator<MessageData> userMessagesIterator(ChatParticipant user) {
         return messageHistory.userMessagesIterator(user);
+    }
+
+    @Override
+    public void undo() {
+        if (Objects.isNull(messageHistorySnapshot)) {
+            throw new MissingHistoryStateException("No message history state available!");
+        }
+        MessageData lastSent = messageHistory.getLastSent(this);
+        messageHistory.restore(messageHistorySnapshot);
+        messageHistorySnapshot = null;
+        chatMediator.requestUndo(lastSent);
+    }
+
+    @Override
+    public void receiveUndo(MessageData messageData) {
+        messageHistory.removeMessage(messageData);
     }
 }

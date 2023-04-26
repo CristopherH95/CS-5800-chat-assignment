@@ -1,7 +1,7 @@
 package chat.server;
 
-import chat.interfaces.ChatBlockCollection;
-import chat.interfaces.ChatParticipant;
+import chat.interfaces.server.ChatBlockCollection;
+import chat.interfaces.server.ChatParticipant;
 
 import java.util.HashMap;
 import java.util.HashSet;

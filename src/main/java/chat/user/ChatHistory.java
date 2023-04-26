@@ -1,18 +1,17 @@
 package chat.user;
 
 import chat.exceptions.MessageHistoryNotFoundException;
-import chat.interfaces.ChatParticipant;
-import chat.interfaces.MessageCollection;
-import chat.interfaces.MessageData;
+import chat.interfaces.messages.MessageDataSnapshot;
+import chat.interfaces.messages.MessageHistory;
+import chat.interfaces.messages.MessageHistorySnapshot;
+import chat.interfaces.server.ChatParticipant;
+import chat.interfaces.messages.MessageData;
 import chat.messages.MessageAddressing;
 
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.function.Predicate;
 
-public class ChatHistory implements MessageCollection {
+public class ChatHistory implements MessageHistory {
     private final TreeSet<MessageData> messages;
 
     public ChatHistory() {
@@ -20,8 +19,32 @@ public class ChatHistory implements MessageCollection {
     }
 
     @Override
+    public MessageHistorySnapshot save() {
+        return new ChatHistorySnapshot(this.messages);
+    }
+
+    @Override
+    public void restore(MessageHistorySnapshot snapshot) {
+        messages.clear();
+        for (MessageDataSnapshot memento : snapshot) {
+            messages.add(memento.regenerate());
+        }
+    }
+
+    @Override
     public void addMessage(MessageData message) {
         messages.add(message);
+    }
+
+    public void removeMessage(MessageData message) {
+        UUID messageID = message.getMessageID();
+
+        for (MessageData messageData : messages) {
+            if (messageData.getMessageID() == messageID) {
+                messages.remove(messageData);
+                break;
+            }
+        }
     }
 
     @Override

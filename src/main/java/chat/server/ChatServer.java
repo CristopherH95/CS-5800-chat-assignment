@@ -1,9 +1,9 @@
 package chat.server;
 
-import chat.interfaces.ChatBlockCollection;
-import chat.interfaces.ChatMediator;
-import chat.interfaces.ChatParticipant;
-import chat.interfaces.MessageData;
+import chat.interfaces.server.ChatBlockCollection;
+import chat.interfaces.server.ChatMediator;
+import chat.interfaces.server.ChatParticipant;
+import chat.interfaces.messages.MessageData;
 import chat.messages.MessageAddressing;
 
 import java.util.HashSet;
@@ -40,6 +40,15 @@ public class ChatServer implements ChatMediator {
     }
 
     @Override
+    public void requestUndo(MessageData messageData) {
+        for (ChatParticipant user : users) {
+            if (checkInRecipients(user, messageData)) {
+                user.receiveUndo(messageData);
+            }
+        }
+    }
+
+    @Override
     public void distributeMessage(MessageData message) {
         for (ChatParticipant user : users) {
             if (checkShouldReceiveMessage(user, message)) {
@@ -51,8 +60,14 @@ public class ChatServer implements ChatMediator {
     private boolean checkShouldReceiveMessage(ChatParticipant receiver, MessageData message) {
         MessageAddressing messageAddressing = message.getAddressing();
         ChatParticipant sender = messageAddressing.sender();
+
+        return !blockCollection.checkIsBlocked(receiver, sender) && checkInRecipients(receiver, message);
+    }
+
+    private boolean checkInRecipients(ChatParticipant receiver, MessageData message) {
+        MessageAddressing messageAddressing = message.getAddressing();
         Set<ChatParticipant> recipients = messageAddressing.recipients();
 
-        return !blockCollection.checkIsBlocked(receiver, sender) && recipients.contains(receiver);
+        return recipients.contains(receiver);
     }
 }

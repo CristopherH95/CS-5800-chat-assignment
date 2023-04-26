@@ -1,4 +1,4 @@
-package chat.interfaces;
+package chat.interfaces.server;
 
 import java.util.Set;
 
