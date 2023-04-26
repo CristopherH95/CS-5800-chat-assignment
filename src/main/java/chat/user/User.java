@@ -6,8 +6,7 @@ import chat.interfaces.messages.MessageHistorySnapshot;
 import chat.interfaces.server.ChatMediator;
 import chat.interfaces.server.ChatParticipant;
 import chat.interfaces.messages.MessageData;
-import chat.messages.Message;
-import chat.messages.MessageAddressing;
+import chat.records.MessageRequest;
 
 import java.util.Iterator;
 import java.util.Objects;
@@ -40,35 +39,15 @@ public class User implements ChatParticipant {
     }
 
     @Override
-    public void sendMessage(String content, Set<ChatParticipant> recipients) {
-        MessageAddressing addressing = new MessageAddressing(this, recipients);
-        Message message = new Message(addressing, content);
+    public void sendMessage(String content, Set<String> recipients) {
+        MessageRequest messageRequest = new MessageRequest(this, content, recipients);
         messageHistorySnapshot = messageHistory.save();
-        messageHistory.addMessage(message);
-        chatMediator.distributeMessage(message);
+        chatMediator.distributeMessage(messageRequest);
     }
 
     @Override
     public void receiveMessage(MessageData message) {
         messageHistory.addMessage(message);
-    }
-
-    @Override
-    public String toString() {
-        return String.format("[User: '%s']", name);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(name, user.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
     }
 
     @Override
@@ -95,5 +74,18 @@ public class User implements ChatParticipant {
     @Override
     public void block(String name) {
         chatMediator.block(this, name);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[User: '%s']", name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(name, user.name);
     }
 }

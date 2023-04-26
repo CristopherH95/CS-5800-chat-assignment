@@ -1,6 +1,6 @@
 package chat.interfaces.messages;
 
-import chat.messages.MessageAddressing;
+import chat.records.MessageAddressing;
 
 import java.util.Date;
 import java.util.UUID;

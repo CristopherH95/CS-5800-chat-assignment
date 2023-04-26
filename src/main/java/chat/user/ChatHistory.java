@@ -6,7 +6,7 @@ import chat.interfaces.messages.MessageHistory;
 import chat.interfaces.messages.MessageHistorySnapshot;
 import chat.interfaces.server.ChatParticipant;
 import chat.interfaces.messages.MessageData;
-import chat.messages.MessageAddressing;
+import chat.records.MessageAddressing;
 
 import java.util.*;
 import java.util.function.Predicate;

@@ -2,6 +2,7 @@ package chat.messages;
 
 import chat.interfaces.messages.MessageData;
 import chat.interfaces.messages.MessageDataSnapshot;
+import chat.records.MessageAddressing;
 
 import java.util.Date;
 import java.util.UUID;

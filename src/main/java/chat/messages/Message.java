@@ -1,9 +1,10 @@
 package chat.messages;
 
 import chat.interfaces.messages.MessageData;
+import chat.interfaces.server.ChatParticipant;
+import chat.records.MessageAddressing;
 
 import java.util.Date;
-import java.util.Objects;
 import java.util.UUID;
 
 public class Message implements MessageData {
@@ -46,5 +47,12 @@ public class Message implements MessageData {
     @Override
     public int compareTo(MessageData otherMessage) {
         return timestamp.compareTo(otherMessage.getTimestamp());
+    }
+
+    @Override
+    public String toString() {
+        ChatParticipant sender = addressing.sender();
+
+        return String.format("%s (%s): %s", sender, timestamp, content);
     }
 }

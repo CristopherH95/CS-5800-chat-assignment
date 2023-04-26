@@ -1,6 +1,7 @@
 package chat.interfaces.server;
 
 import chat.interfaces.messages.MessageData;
+import chat.records.MessageRequest;
 
 public interface ChatMediator {
     void registerUser(ChatParticipant user);
@@ -8,5 +9,5 @@ public interface ChatMediator {
     void block(ChatParticipant blockFrom, String blockToName);
     void unBlock(ChatParticipant blockFrom, String blockToName);
     void requestUndo(MessageData messageData);
-    void distributeMessage(MessageData message);
+    void distributeMessage(MessageRequest request);
 }

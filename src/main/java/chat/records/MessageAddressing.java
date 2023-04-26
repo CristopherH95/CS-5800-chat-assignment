@@ -1,4 +1,4 @@
-package chat.messages;
+package chat.records;
 
 import chat.interfaces.server.ChatParticipant;
 

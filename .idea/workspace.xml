@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6b7ab0a-9fd1-4d4a-bf59-753366b1fb7d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/chat/exceptions/UserNameConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/chat/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/chat/records/MessageRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/messages/MessageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/messages/MessageData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/ChatMediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/ChatMediator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/ChatParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/ChatParticipant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/MessageSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/MessageSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/messages/MessageAddressing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/records/MessageAddressing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/messages/MessageMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/messages/MessageMemento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/chat/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/server/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/user/ChatHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/user/ChatHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/chat/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/driver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Record" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -42,6 +51,26 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="driver.Main" />
+      <module name="chat-assignment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="driver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
