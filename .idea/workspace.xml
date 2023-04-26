@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6b7ab0a-9fd1-4d4a-bf59-753366b1fb7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/exceptions/UserNameConflictException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/exceptions/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chat/records/MessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/messages/MessageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/messages/MessageData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/ChatMediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/ChatMediator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/MessageSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/interfaces/server/MessageSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/messages/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/messages/MessageAddressing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/records/MessageAddressing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/messages/MessageMemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/messages/MessageMemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/server/ChatServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/user/ChatHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/user/ChatHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chat/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/driver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +24,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2OkiVKA3kQurfJsHcLPNnRenKmL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
