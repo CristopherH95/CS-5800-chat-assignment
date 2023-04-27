@@ -104,10 +104,8 @@ public class ChatServer implements ChatMediator {
     private boolean checkReceiverMatchesSender(ChatParticipant receiver, MessageData message) {
         MessageAddressing messageAddressing = message.getAddressing();
         ChatParticipant sender = messageAddressing.sender();
-        String senderName = sender.getName();
-        String receiverName = receiver.getName();
 
-        return senderName.equals(receiverName);
+        return sender.equals(receiver);
     }
 
     private boolean checkIsNotBlocked(ChatParticipant receiver, MessageData message) {

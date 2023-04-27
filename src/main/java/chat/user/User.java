@@ -6,6 +6,7 @@ import chat.interfaces.messages.MessageHistorySnapshot;
 import chat.interfaces.server.ChatMediator;
 import chat.interfaces.server.ChatParticipant;
 import chat.interfaces.messages.MessageData;
+import chat.records.MessageAddressing;
 import chat.records.MessageRequest;
 
 import java.util.Iterator;
@@ -47,6 +48,9 @@ public class User implements ChatParticipant {
 
     @Override
     public void receiveMessage(MessageData message) {
+        if (checkShouldRemoveSave(message)) {
+            messageHistorySnapshot = null;
+        }
         messageHistory.addMessage(message);
     }
 
@@ -87,5 +91,22 @@ public class User implements ChatParticipant {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(name, user.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    // If receiving a message from another user, it is now too late
+    // to hit 'undo' so we need to wipe out the snapshot.
+    private boolean checkShouldRemoveSave(MessageData messageData) {
+        if (Objects.isNull(messageHistorySnapshot)) {
+            return false;
+        }
+        MessageAddressing addressing = messageData.getAddressing();
+        ChatParticipant sender = addressing.sender();
+
+        return !sender.equals(this);
     }
 }
