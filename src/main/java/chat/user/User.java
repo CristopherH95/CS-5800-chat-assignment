@@ -48,7 +48,7 @@ public class User implements ChatParticipant {
 
     @Override
     public void receiveMessage(MessageData message) {
-        if (checkShouldRemoveSave(message)) {
+        if (checkShouldRemoveSnapshot(message)) {
             messageHistorySnapshot = null;
         }
         messageHistory.addMessage(message);
@@ -100,7 +100,7 @@ public class User implements ChatParticipant {
 
     // If receiving a message from another user, it is now too late
     // to hit 'undo' so we need to wipe out the snapshot.
-    private boolean checkShouldRemoveSave(MessageData messageData) {
+    private boolean checkShouldRemoveSnapshot(MessageData messageData) {
         if (Objects.isNull(messageHistorySnapshot)) {
             return false;
         }
